@@ -1,0 +1,127 @@
+<%- include ('./include_front/head_front.ejs') %>
+<%- include ('./include_front/navbar.ejs') %>
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/assets_front/images/pexels-rachel-claire-4825701.jpg');">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+         <p class="breadcrumbs"><span class="mr-2"><a href="/website">Home <i class="fa fa-chevron-right"></i></a></span> <span>Tour List <i class="fa fa-chevron-right"></i></span></p>
+         <h1 class="mb-0 bread">Tours List</h1>
+     </div>
+</div>
+</div>
+</section>
+
+
+
+
+<section class="ftco-section ftco-no-pb ftco-no-pt">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="ftco-search d-flex justify-content-center">
+               <div class="row">
+                  <div class="col-md-12 nav-link-wrap">
+             <a class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true" style="font-size:25px;font-weight: bold;">Search Tour</a>
+                  </div>
+                  <div class="col-md-12 tab-wrap">
+                     <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
+                           <form action="/price_limit" method="post" class="search-property-1">
+                              <div class="row no-gutters">
+                                 <div class="col-md d-flex">
+                                    <div class="form-group p-4 border-0">
+                                       <label for="#">Destination</label>
+                                       <div class="form-field">
+                                          <div class="icon"><span class="fa fa-search"></span></div>
+                                          <input type="text" name="dname" class="form-control" placeholder="Search place">
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-md d-flex">
+                                    <div class="form-group p-4">
+                                       <label for="#">Price Limit</label>
+                                       <div class="form-field">
+                                          <div class="select-wrap">
+                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                             <select name="price" class="form-control" placeholder="Select a value">
+                                                <option value="">Select a value</option>
+                                                <option value="5000">Rs.5000</option>
+                                                <option value ="7000">Rs.7000</option>
+                                                <option value="10000">Rs.10,000</option>
+                                                <option value="50000">Rs.50,000</option>
+                                             </select>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-md d-flex">
+                                    <div class="form-group d-flex w-100 border-0">
+                                       <div class="form-field w-100 align-items-center d-flex">
+                                          <input type="submit" value="Search" class="align-self-stretch form-control btn btn-primary">
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>						
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+
+
+<section class="ftco-section">
+   <div class="container">
+      <% if (locals.message && locals.message.success ){ %>
+         <div class="alert alert-success">
+       <%= message.success %>
+       <%= message.message %>
+       </div>
+       <% } %>
+   <div class="row">
+   <% for(var i=0; i< destinations.length;i++) { %>
+<div class="col-md-4 ftco-animate">
+      <div class="project-wrap">
+         <a href="#" class="img" style="background-image: url(assets/images/<%= destinations[i].images %>)">
+            <span class="price">Rs.<%= destinations[i].price %>/person</span>
+      </a>
+      <div class="text p-4">
+            <span class="days">
+         <%   
+         var enddate = new Date(destinations[i].enddate);
+         var startdate = new Date(destinations[i].startdate);
+         var timeDiff = enddate.getTime() - startdate.getTime();
+         var days = Math.floor( timeDiff / 86400000); 
+         %> <%=days%> Days Tour</span>
+            <h3><a href="#"><%= destinations[i].name %></a></h3>
+            <p class="location"><span class="fa fa-map-marker"></span> <%= destinations[i].city %>, <%= destinations[i].state %></p>
+            <a href="/single_dest/<%=destinations[i].id %>" style="color:white;background-color:black;padding:10px">See more</a>
+      </div>
+   </div>
+</div>
+<%} %>
+</div>
+</div>
+</section>
+<section class="ftco-section"> 
+   <div class="container"><p style="color:black;font-size:30px;text-align: center;">Any feedback for us ?</p>
+   <form action="/feedback" method="post" name="feedbackform" class="bg-light p-5 contact-form">
+      <div class="form-group">
+        <input type="text" name="email" class="form-control" value="" placeholder="Your Email">
+      </div>
+      <div class="form-group">
+        <textarea name="message" rows="9" class="form-control" value="" placeholder="Enter your feedback"></textarea>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-primary py-3 px-5">
+        </div>
+    </form></div>
+</section>
+<%- include ('include_front/footer_front.ejs') %>		

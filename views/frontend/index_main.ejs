@@ -1,0 +1,408 @@
+
+<%- include ('../frontend/include_front/head_front.ejs') %>
+<%- include ('../frontend/include_front/navbar.ejs') %>
+
+<div class="hero-wrap js-fullheight" style="background-image: url('/assets_front/images/annie-spratt-qyAka7W5uMY-unsplash.jpg');">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
+				<div class="col-md-7 ftco-animate">
+					<span class="subheading" style="font-size: 40px;">Welcome to Hodophile Touristry</span>
+					<h1 class="mb-4">Explore your dream places with us</h1>
+					<p class="caps">Travel to any corner of India with anywhere door of Hodophile Touristry</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<section class="ftco-section ftco-no-pb ftco-no-pt">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="ftco-search d-flex justify-content-center">
+						<div class="row">
+							<div class="col-md-12 nav-link-wrap">
+                <a class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true" style="font-size:25px;font-weight: bold;">Search Tour</a>
+							</div>
+							<div class="col-md-12 tab-wrap">
+								<div class="tab-content" id="v-pills-tabContent">
+									<div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
+										<form action="/price_limit" method="post" class="search-property-1">
+											<div class="row no-gutters">
+												<div class="col-md d-flex">
+													<div class="form-group p-4 border-0">
+														<label for="#">Destination</label>
+														<div class="form-field">
+															<div class="icon"><span class="fa fa-search"></span></div>
+															<input type="text" name="dname" class="form-control" placeholder="Search place">
+														</div>
+													</div>
+												</div>
+												<div class="col-md d-flex">
+													<div class="form-group p-4">
+														<label for="#">Price Limit</label>
+														<div class="form-field">
+															<div class="select-wrap">
+																<div class="icon"><span class="fa fa-chevron-down"></span></div>
+																<select name="price" class="form-control" placeholder="Select a value">
+																	<option value="">Select a value</option>
+																	<option value="5000">Rs.5000</option>
+																	<option value ="7000">Rs.7000</option>
+																	<option value="10000">Rs.10,000</option>
+																	<option value="50000">Rs.50,000</option>
+																</select>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-md d-flex">
+													<div class="form-group d-flex w-100 border-0">
+														<div class="form-field w-100 align-items-center d-flex">
+															<input type="submit" value="Search" class="align-self-stretch form-control btn btn-primary">
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>						
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="ftco-section services-section">
+			<div class="container">
+				<div class="row d-flex">
+					<div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate d-flex align-items-center">
+						<div class="w-100">
+							<span class="subheading">Welcome to Hodophile Touristry</span>
+							<h2 class="mb-4">It's time to start your adventure</h2>
+							<p>Travelling is highly addictive! Once you try out that gathering the most unforgettable memories of your life can cost very little, you will never want to stay comfy at home. We put together a list of the best travel destinations that will help to take the first step and GO!</p>
+							<p>
+								<a href="/website" class="btn btn-primary py-3 px-4">Search Destination</a>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+							<div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+								<div class="services services-1 color-1 d-block img" style="background-image: url(/assets_front/images/services-1.jpg);">
+									<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-paragliding"></span></div>
+									<div class="media-body">
+										<h3 class="heading mb-3">Activities</h3>
+										<p>Backpacking, Trekking, Adventure sports, Camping, Food tourism, Exploration and many more..</p>
+									</div>
+								</div>      
+							</div>
+							<div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+								<div class="services services-1 color-2 d-block img" style="background-image: url(/assets_front/images/services-2.jpg);">
+									<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+									<div class="media-body">
+										<h3 class="heading mb-3">Travel Arrangements</h3>
+										<p>As per the affordability, availability and facilities in the area</p>
+									</div>
+								</div>    
+							</div>
+							<div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+								<div class="services services-1 color-3 d-block img" style="background-image: url(/assets_front/images/services-3.jpg);">
+									<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-tour-guide"></span></div>
+									<div class="media-body">
+										<h3 class="heading mb-3">Private Guide</h3>
+										<p>A private guide can be provided who will be a great service along the tour and also to know about history, importance of the places. </p>
+									</div>
+								</div>      
+							</div>
+							<div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+								<div class="services services-1 color-4 d-block img" style="background-image: url(/assets_front/images/services-4.jpg);">
+									<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-map"></span></div>
+									<div class="media-body">
+										<h3 class="heading mb-3">Location Manager</h3>
+										<p>Helps with the necessary aspect of getting information about the current location.</p>
+									</div>
+								</div>      
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- <section class="ftco-section img ftco-select-destination" style="background-image: url(/assets_front/images/bg_3.jpg);">
+			<div class="container">
+				<div class="row justify-content-center pb-4">
+					<div class="col-md-12 heading-section text-center ftco-animate">
+						<span class="subheading">Hodophile Touristry Provides Places</span>
+						<h2 class="mb-4">Select Your Destination</h2>
+					</div>
+				</div>
+			</div>
+			<div class="container container-2">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="carousel-destination owl-carousel ftco-animate">
+							<div class="item">
+								<div class="project-destination">
+									<a href="#" class="img" style="background-image: url(/assets_front/images/place-1.jpg);">
+										<div class="text">
+											<h3>Philippines</h3>
+											<span>8 Tours</span>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="item">
+								<div class="project-destination">
+									<a href="#" class="img" style="background-image: url(/assets_front/images/place-2.jpg);">
+										<div class="text">
+											<h3>Canada</h3>
+											<span>2 Tours</span>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="item">
+								<div class="project-destination">
+									<a href="#" class="img" style="background-image: url(/assets_front/images/place-3.jpg);">
+										<div class="text">
+											<h3>Thailand</h3>
+											<span>5 Tours</span>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="item">
+								<div class="project-destination">
+									<a href="#" class="img" style="background-image: url(/assets_front/images/place-4.jpg);">
+										<div class="text">
+											<h3>Autralia</h3>
+											<span>5 Tours</span>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="item">
+								<div class="project-destination">
+									<a href="#" class="img" style="background-image: url(/assets_front/images/place-5.jpg);">
+										<div class="text">
+											<h3>Greece</h3>
+											<span>7 Tours</span>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section> -->
+		
+		<section class="ftco-section ftco-about img"style="background-image: url(/assets_front/images/services-3.jpg);">
+			<div class="overlay"></div>
+			<div class="container py-md-5">
+				<div class="row py-md-5">
+					<div class="col-md d-flex align-items-center justify-content-center">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="ftco-section ftco-about ftco-no-pt img">
+			<div class="container">
+				<div class="row d-flex">
+					<div class="col-md-12 about-intro">
+						<div class="row">
+							<div class="col-md-6 d-flex align-items-stretch">
+								<div class="img d-flex w-100 align-items-center justify-content-center" style="background-image:url(/assets_front/images/pexels-element-digital-1051073.jpg);">
+								</div>
+							</div>
+							<div class="col-md-6 pl-md-5 py-5">
+								<div class="row justify-content-start pb-3">
+									<div class="col-md-12 heading-section ftco-animate">
+										<span class="subheading">About Us</span>
+										<h2 class="mb-4">Make Your Tour Memorable and Safe With Us</h2>
+										<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+										<a href="/destination"><p class="btn btn-primary">Book Your Destination now!</p></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="ftco-section testimony-section bg-bottom" style="margin-bottom:100px;background-image: url(/assets_front/images/bg_1.jpg);">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row justify-content-center pb-4">
+					<div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+						<span class="subheading">Testimonial</span>
+						<h2 class="mb-4">Feedbacks by some Tourists</h2>
+					</div>
+				</div>
+				<div class="row ftco-animate">
+					<div class="col-md-12">
+						<div class="carousel-testimony owl-carousel">
+							<div class="item">
+								<div class="testimony-wrap py-4">
+									<div class="text">
+										<p class="star">
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+										</p>
+										<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+										<div class="d-flex align-items-center">
+											<div class="user-img" style="background-image: url(/assets_front/images/person_1.jpg)"></div>
+											<div class="pl-3">
+												<p class="name">Roger Scott</p>
+												<span class="position">Marketing Manager</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="testimony-wrap py-4">
+									<div class="text">
+										<p class="star">
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+										</p>
+										<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+										<div class="d-flex align-items-center">
+											<div class="user-img" style="background-image: url(/assets_front/images/person_2.jpg)"></div>
+											<div class="pl-3">
+												<p class="name">Roger Scott</p>
+												<span class="position">Marketing Manager</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="testimony-wrap py-4">
+									<div class="text">
+										<p class="star">
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+										</p>
+										<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+										<div class="d-flex align-items-center">
+											<div class="user-img" style="background-image: url(/assets_front/images/person_3.jpg)"></div>
+											<div class="pl-3">
+												<p class="name">Roger Scott</p>
+												<span class="position">Marketing Manager</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="testimony-wrap py-4">
+									<div class="text">
+										<p class="star">
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+										</p>
+										<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+										<div class="d-flex align-items-center">
+											<div class="user-img" style="background-image: url(/assets_front/images/person_1.jpg)"></div>
+											<div class="pl-3">
+												<p class="name">Roger Scott</p>
+												<span class="position">Marketing Manager</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="testimony-wrap py-4">
+									<div class="text">
+										<p class="star">
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+										</p>
+										<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+										<div class="d-flex align-items-center">
+											<div class="user-img" style="background-image: url(/assets_front/images/person_2.jpg)"></div>
+											<div class="pl-3">
+												<p class="name">Roger Scott</p>
+												<span class="position">Marketing Manager</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<style>
+			.gallery {
+			  display: flex;
+			  flex-wrap: wrap;
+			  justify-content: center;
+			  margin-bottom: 100px;
+			}
+		  
+			.image {
+			  width: 360px;
+			  height: 300px;
+			  margin: 10px;
+			  padding: 10px;
+			  border: 1px solid #ccc;
+			  border-radius:30px;
+			  box-sizing: border-box;
+			  position: relative;
+			  overflow: hidden;
+			  transition: transform 0.2s ease-out;
+			}
+		  
+			.image img {
+			  width: 100%;
+			  height: 100%;
+			  object-fit: cover;
+			  border-radius:30px;
+			  transition: transform 0.2s ease-out;
+			}
+		  
+			.image:hover {
+			  transform: scale(1.05);
+			}
+		  
+			.image:hover img {
+			  transform: scale(1.2);
+			}
+		  </style>
+		<div class="gallery" style="display: flex;
+		flex-wrap: wrap;
+		justify-content: center;margin-bottom:100px">
+			<% imageArray.forEach(function(image) { %>
+			<div class="image">
+				<img src="<%= image.src %>" >
+			</div>
+			<% }); %>
+		</div>
+
+<%- include('./include_front/footer_front.ejs') %>		
+
+	

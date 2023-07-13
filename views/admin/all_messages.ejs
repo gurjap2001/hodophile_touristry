@@ -1,0 +1,32 @@
+<%- include('./include/head.ejs') %>
+<%- include('./include/sidebar.ejs') %>
+<div class="main-panel">
+    <div class="content-wrapper pb-0">
+      <div class="page-header flex-wrap">
+<table class="table" id="myTable">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+
+<tbody>
+    <% for(var i = 0; i < messages.length; i++) { %>
+        <tr>
+            <td><%= i + 1 %></td>
+            <td><%= messages[i].name %></td>
+            <td><%= messages[i].email %></td>
+            <td><%= messages[i].subject %></td>
+            <td><%= messages[i].message %></td>
+        </tr>
+        <% } %>
+</tbody>
+
+</table>
+</div>
+</div>
+<%- include('./include/footer.ejs') %>

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/flag-icon-css/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css" />
+    <link rel="stylesheet" href="/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="icon" href="/assets_front/images/2832064.png" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container-scroller">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="/website" class="nav-link">
+                <div class="nav-profile-image">
+                  <img src="/assets/images/faces/face1.jpg" alt="profile" />
+                  <span class="login-status online"></span>
+                  <!--change to offline or busy as needed-->
+                </div>
+                <div class="nav-profile-text d-flex flex-column pr-3">
+                  <span class="font-weight-medium mb-2">Gurjap Kaur</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/dashboard">
+                <i class="mdi mdi-home menu-icon"></i>
+                <span class="menu-title">Home</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic5" aria-expanded="false" aria-controls="ui-basic">
+                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                <span class="menu-title">Destinations</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="ui-basic5">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/add_destination">Add a new destination</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/all_dest">All destinations</a>
+                  </li></ul></div></li> 
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic">
+                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                <span class="menu-title">Messages</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="ui-basic3">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/all_messages">All messages</a>
+                  </li>
+          </ul>
+            </div>
+          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/show_users">
+                <i class="mdi mdi-contacts menu-icon"></i>
+                <span class="menu-title">All users</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/booking_data">
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                <span class="menu-title">Bookings</span>
+              </a>
+            </li>
+            <li class="nav-item sidebar-actions">
+              <div class="nav-link">
+                <div class="mt-4">
+                  <ul class="mt-4 pl-0">
+                    <a href="/logout">
+                    <li>Sign Out</li></a>
+                  </ul>
+                </div>
+              </div>
+            </li>
+        </nav>
+      <div class="container-fluid page-body-wrapper">
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close mdi mdi-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-default-theme">
+            <div class="img-ss rounded-circle bg-light border mr-3"></div> Default
+          </div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme">
+            <div class="img-ss rounded-circle bg-dark border mr-3"></div> Dark
+          </div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles light"></div>
+            <div class="tiles dark"></div>
+          </div>
+        </div>
+        <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
+          <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
+            <a class="navbar-brand brand-logo-mini align-self-center d-lg-none" href="index.html"><img src="/assets/images/logo-mini.svg" alt="logo" /></a>
+            <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
+              <i class="mdi mdi-menu"></i>
+            </button>
+            <ul class="navbar-nav navbar-nav-right ml-lg-auto">           
+              <li class="nav-item nav-profile dropdown border-0">
+                <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown">
+                  <img class="nav-profile-img mr-2" alt="" src="/assets/images/faces/face1.jpg" />
+                  <span class="profile-name">Gurjap Kaur</span>
+                </a>
+                <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
+                  <a class="dropdown-item" href="#">
+                    <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
+                  <a class="dropdown-item" href="/logout">
+                    <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
+                </div>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-menu"></span>
+            </button>
+          </div>
+        </nav>
+
+
+
+<div class="main-panel">
+    <div class="content-wrapper pb-0">
+      <div class="page-header flex-wrap">
+            <div class="card-body">
+            <p class="card-description">Edit Destination</p>
+            <form action="/update_dest/<%=destinations.id %>" method="post" class="forms-sample" enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="exampleInputName1">Name</label>
+                <input type="text" class="form-control" name="dname" value="<%=destinations.name%>">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail3">Price</label>
+                <input type="text" class="form-control" name="price" value="<%=destinations.price%>">
+              </div>
+              <div class="form-group">
+                <label for="exampleSelectGender">State</label>
+                <select class="form-control" name="state">  
+                    <option value="<%=destinations.state%>"><%=destinations.state%></option>
+                    <option >Andhra Pradesh</option>
+                    <option >Arunachal Pradesh</option>
+                    <option >Assam</option>
+                    <option >Bihar</option>
+                    <option > Chhattisgarh</option>
+                    <option >Goa</option>
+                    <option >Gujarat</option>
+                    <option > Haryana</option>
+                    <option > Himachal Pradesh</option>
+                    <option >Jammu and Kashmir</option>
+                    <option >Jharkhand</option>
+                    <option >Karnataka</option>
+                    <option >Kerala</option>
+                    <option >Madhya Pradesh</option>
+                    <option > Maharashtra</option>
+                    <option > Manipur</option>
+                    <option >Meghalaya</option>
+                    <option >Mizoram</option>
+                    <option >Nagaland</option>
+                    <option >Odisha</option>
+                    <option >Punjab</option>
+                    <option >Rajasthan</option>
+                    <option >Sikkim</option>
+                    <option >Tamil Nadu</option>
+                    <option >Telangana</option>
+                    <option >Tripura</option>
+                    <option > Uttar Pradesh</option> 
+                    <option >Uttarakhand</option>
+                    <option >West Bengal</option>   
+                </select></div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">City/Area</label>
+                    <input type="text" class="form-control" name="city" value="<%=destinations.city%>">
+                  </div>                  
+                  <div class="form-group">
+                    <label>Start Date</label>           
+                      <input class="form-control" type="date" id="destSdaytime" name="destSdaytime" value="<%=destinations.startdate %>">
+                      <p class="text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <label>End Date</label>           
+                      <input class="form-control" type="date" id="destSdaytime" name="destEdaytime" value="<%=destinations.enddate %>">
+                      <p class="text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <label>Includes</label>
+                     <% const includess = destinations.includes %>  
+                    <select class="js-example-basic-multiple" name="includes[]"  multiple><% includess.split(',').forEach(function(include) { %>
+                      <option value="<%= include %>"><%= include %></option>
+                    <% }); %>
+                    <option >4+ Star Accomodations</option>
+                    <option >Roundtrip Airfare from Airport</option>
+                    <option >Ground Transportation from Airport to only if flight package is purchased</option>
+                    <option >Activities &amp; Excursions listed on Itinerary</option>
+                    <option  >Meals</option>
+                    <option >Insurance</option>
+                  </select>
+                  </div>
+                  <div class="form-group">
+                    <% const excludess = destinations.excludes %> 
+                    <label>Excludes</label>
+                        <select class="js-example-basic-multiple" name="excludes[]"  multiple><% excludess.split(',').forEach(function(exclude) { %>
+                          <option value="<%= exclude %>"><%= exclude %></option>
+                        <% }); %>
+                                                  <option>Guide Service Fee</option>
+                                                  <option >Room Service Fees</option>
+                                                  <option >Driver Service Fee</option>                     
+                                                  <option >Meals</option>
+                                                  <option >Activities not Listed on Itinerary</option>
+                                                  <option >Insurance</option>
+                                                  <option >Covid </option>
+                                                  <option >Airline Baggage Fees</option>
+                                                  <option >Transportation to the Airport</option>
+                                                  <option >Activities &amp; Excursions not listed on Itinerary</option>
+                                                  </select></div>
+              <div class="form-group">
+                <label>File upload</label>
+                  <input type="file" name="img" class="form-control file-upload-info" placeholder="Upload Image" value="<%=destinations.images %>">
+              </div>
+              <div class="form-group">
+                <label>Upload multiple images</label>
+                  <input  multiple="multiple" type="file"  name="images" class="form-control file-upload-info" placeholder="Upload Image" value="<%=destinations.multi_images %>">
+              </div>
+              <div class="form-group">
+                <label for="exampleTextarea1">Additional Information</label>
+                <textarea class="form-control" name="add_info" rows="7"><%=destinations.additionalinfo %></textarea>
+              </div>
+              <div class="form-group">
+                <label>Description Box</label>
+              <form method="post">
+                <textarea id="mytextarea" name = "description" rows="30"><%= destinations.descriptionbox %></textarea>
+                </form><br>
+              <button type="submit" class="btn btn-primary mr-2"> Submit </button>
+              <button class="btn btn-light">Cancel</button>
+            </form>
+            </div>
+          </div>      
+  </div>
+  
+  <!-- main-panel ends -->
+</div>
+
+    <!-- page-body-wrapper ends -->
+    <footer class="footer">
+      Copyright © Hodophile Touristry 2023
+    </footer>
+  </div>
+  
+
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/assets/vendors/chart.js/Chart.min.js"></script>
+  <script src="/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+  <script src="/assets/vendors/flot/jquery.flot.js"></script>
+  <script src="/assets/vendors/flot/jquery.flot.resize.js"></script>
+  <script src="/assets/vendors/flot/jquery.flot.categories.js"></script>
+  <script src="/assets/vendors/flot/jquery.flot.fillbetween.js"></script>
+  <script src="/assets/vendors/flot/jquery.flot.stack.js"></script>
+  <script src="/assets/vendors/flot/jquery.flot.pie.js"></script>
+  
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/assets/js/off-canvas.js"></script>
+  <script src="/assets/js/hoverable-collapse.js"></script>
+  <script src="/assets/js/misc.js"></script>
+  <script src="https://cdn.tiny.cloud/1/ft9mno29i80ulr1oyulgjm3lyyrg66md2ohkskw0b60meqk4/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+ <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="/assets/js/dashboard.js"></script>
+  <!-- End custom js for this page -->
+  <script>
+  $('.js-example-basic-multiple').select2({
+placeholder: 'Select',
+maximumSelectionLength: 4,
+tags: true
+});
+  </script>
+   <script>
+    tinymce.init({
+      selector: '#mytextarea'
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,227 @@
+<%- include ('./include_front/head_front.ejs') %>
+<%- include ('./include_front/navbar.ejs') %>
+
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/assets_front/images/pexels-rachel-claire-4825701.jpg');">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+      <p class="breadcrumbs"><span class="mr-2"><a href="/website">Home <i class="fa fa-chevron-right"></i></a></span>Profile<span><i class="fa fa-chevron-right"></i></span></p>
+      <h1 class="mb-0 bread">Profile</h1>
+    </div>
+  </div>
+</div>
+</section>
+<% if (locals.message && locals.message.success ){ %>
+  <div class="alert alert-success">
+<%= message.success %>
+<%= message.message %>
+</div>
+<% } %>
+<section class="ftco-section ftco-no-pb contact-section mb-4">
+  <div class="container">
+    <div class="row d-flex contact-info">
+      <div class="col-md-3 d-flex">
+    <div class="align-self-stretch box p-4 text-center">
+        <div class="icon d-flex align-items-center justify-content-center">
+        <span class="fa fa-map-marker"></span>
+      </div>
+      <h3 class="mb-2">Name</h3>
+      <p><b><%= users.name %></b></p>
+    </div>
+</div>
+  <div class="col-md-3 d-flex">
+    <div class="align-self-stretch box p-4 text-center">
+      <div class="icon d-flex align-items-center justify-content-center">
+      <span class="fa fa-phone"></span>
+    </div>
+    <h3 class="mb-2">Contact Number</h3>
+    <p><a href="tel:<%= users.mobile %>"><%= users.mobile %></a></p>
+  </div>
+</div>
+<div class="col-md-3 d-flex">
+  <div class="align-self-stretch box p-4 text-center">
+    <div class="icon d-flex align-items-center justify-content-center">
+    <span class="fa fa-paper-plane"></span>
+  </div>
+  <h3 class="mb-2">Email Address</h3>
+  <p><a href="mailto:<%=users.email%>"><%= users.email %></a></p>
+</div>
+</div>
+<div class="col-md-3 d-flex">
+<div class="align-self-stretch box p-4 text-center">
+  <div class="icon d-flex align-items-center justify-content-center">
+  <span class="fa fa-globe"></span>
+</div>
+<h3 class="mb-2">Website</h3>
+<p><a href="#">localhost://3007</a></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="ftco-section contact-section ftco-no-pt">
+  <h3 style="text-align:center;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Update your Profile =></h3>
+  <div class="container">
+    <div class="row block-9">
+      <div class="col-md-6 d-flex">
+        <!-- <script>
+          // Defining a function to display error message
+          function printError(elemId, hintMsg) {
+              document.getElementById(elemId).innerHTML = hintMsg;
+          }
+        -->
+        
+        <!-- //   function validateForm2() {
+        //       // Retrieving the values of form elements 
+        //       var name = document.contactform.name.value;
+        //       var email = document.contactform.email.value;
+        //       var message = document.contactform.messages.value;
+          
+        //       var nameErr2 = emailErr2 = messErr2= true;
+        //        // Validate name
+        //       if (name == "") {
+        //           printError("nameErr2", "Please enter your name");
+        //       } else {
+        //           var regex = /^[a-zA-Z\s]+$/;
+        //           if (regex.test(name) === false) {
+        //               printError("nameErr2", "Please enter a valid name");
+        //           } else {
+        //               printError("nameErr2", "");
+        //               nameErr = false;
+        //           }
+        //       }
+        
+        //       // Validate email address
+        //       if (email == "") {
+        //           printError("emailErr2", "Please enter your email address");
+        //       }
+        //       else{
+        //           // Regular expression for basic email validation
+        //           var regex = /^\S+@\S+\.\S+$/;
+        //           if (regex.test(email)
+        //           === false) {
+        //               printError("emailErr2", "Please enter a valid email address");
+        //           } else {
+        //               printError("emailErr2", "");
+        //               emailErr2 = false;
+        //           }
+        //       }
+        //       if(message==""){
+        //         printError("messErr2", "Please enter a message");
+        //       }
+        //       else {
+        //               printError("messErr2", "");
+        //               messErr2 = false;
+        //           }
+            
+        //       // Prevent the form from being submitted if there are any errors
+        //       if ((nameErr2 || emailErr2 || messErr2) == true) {
+        //           return false;
+        //       } else {
+        //           // Creating a string from input data for preview
+        //           var dataPreview = "You've entered the following details: \n" +
+        //               "Name: " + name + "\n" +
+        //               "Email: " + email + "\n" +
+        //               "Message: " + message + "\n" 
+        //   }
+        // } -->
+        <!-- // </script> -->
+       
+        <form action="/update_profile/<%=users.id %>" method="post" name="profile" class="bg-light p-5 contact-form" enctype="multipart/form-data">
+          <label>Name</label>
+          <div class="form-group">
+            <input type="text" name="name" class="form-control" value="<%=users.name %>" placeholder="<%=users.name %>">
+          </div>  <div class="error" id="nameErr2"></div>
+          <div class="form-group">
+            <label>Email Id</label>
+            <input type="text" name="email" class="form-control" value="<%= users.email %>" placeholder="<%= users.email %>">
+          </div>  <div class="error" id="emailErr2"></div>
+          <div class="form-group">
+            <label>Mobile</label>
+            <input type="text" name="mobile" class="form-control" value ="<%= users.mobile %>"placeholder="<%= users.mobile %>">
+          </div>
+        
+
+    </div>
+    <div class="col-md-6" class="bg-light p-5 contact-form">
+      <div class="form-group">
+        <label>Gender</label>
+        <select name="gender"  value ="<%=users.gender %>" class="form-control">
+          <option value="Female">Female</option>
+          <option value="Male">Male</option>
+          <option value="Other">Other</option>
+      </select>
+      </div> 
+      <div class="form-group"><img src="/assets/images/<%= users.profile_image %>" style="height:200px;width:200px;background-size: cover;" alt="Please add an image"></div>
+      <div class="form-group">
+        <label>Add or edit your profile picture here:</label>
+        <input type="file" name="profile_picture">
+      </div>
+      <div class="form-group">
+        <label>Disability:</label><br>
+        <input type="radio" id="yes" name="dis" value="1">
+        <label for="yes">Yes</label><br>
+        <input type="radio" name="dis" id="no"value="0">
+        <label for="no">No</label><br>
+      </div>
+      <div class="form-group">
+        <label>Allergies(if any)</label>
+        <input type="text" name="allergies" value="<%= users.allergies%>" class="form-control" placeholder="Enter any allergy you have">
+      </div>
+      <div class="form-group">
+        <label>Address</label>
+        <input type="text" name="address" value="<%= users.address %>" class="form-control" placeholder="Enter your permanent address">
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary py-3 px-5">
+        </div>
+    </div>
+    <% if (locals.message){ %>
+      <div class="alert alert-message">
+    <%= message.success %>
+    <%= message.message %>
+    </div>
+    <% } %>
+  </form>
+  </div> 
+  </div>
+</div>
+</section>
+
+<section style="margin: auto 20px;margin-bottom:40px">
+  <h3>My Bookings:</h3>
+  <div class="page-header flex-wrap">
+  <table class="table" id="myTable">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Price</th>
+            <th>Destination ID</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+<tbody>
+    <% for(var i = 0; i < bookings.length; i++) { %>
+      <% if(bookings[i].email == currentUser.email) { %>
+        <tr>
+            <td><%= i + 1 %></td>
+            <td><%= bookings[i].price %></td>
+            <td><%= bookings[i].dest_id %></td>
+            <td><%= bookings[i].email %></td>
+            <td> <a class="btn border-shadow delete" href="/delete_booking/<%= bookings[i].id %>">
+              <span style="color: blue;"><em>Cancel</em></span>
+          </a></td>
+        </tr>
+        <% } %>
+        <% } %>
+</tbody>
+
+</table>
+</section>
+<%- include ('include_front/footer_front.ejs') %>
+

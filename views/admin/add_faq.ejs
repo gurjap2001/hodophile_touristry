@@ -1,0 +1,31 @@
+<%- include('./include/head.ejs') %>
+<%- include('./include/sidebar.ejs') %>
+
+<div class="main-panel">
+    <div class="content-wrapper pb-0">
+    <div class="page-header flex-wrap">
+            <div class="card-body">
+                <% if (locals.message && locals.message.success ){ %>
+                    <div class="alert alert-success">
+                  <%= message.success %>
+                  <%= message.message %>
+                  </div>
+                  <% } %>   
+            <p class="card-description" style="font-size:25px">Create a new FAQ</p>
+            <form action="/add_faq" method="post" class="forms-sample">
+                <div class="form-group">
+                    <label style="font-size:20px">Question:</label>
+                    <textarea id="mytextarea" name="question"></textarea>
+                    <br></div>
+            <div class="form-group">
+                <label style="font-size:20px">Answer:</label>
+                <textarea id="mytextarea" name="answer"></textarea>
+                <br></div>
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            </form>
+            </div></div>
+</div>
+<!-- main-panel ends -->
+</div>
+
+<%- include('./include/footer.ejs') %>

@@ -1,0 +1,119 @@
+<%- include('./include/head.ejs') %>
+<%- include('./include/sidebar.ejs') %>
+
+<div class="main-panel">
+    <div class="content-wrapper pb-0">
+      <div class="page-header flex-wrap">
+            <div class="card-body">
+            <p class="card-description">Create a new destination</p>
+            <form action="/create_dest" method="post" class="forms-sample" enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="exampleInputName1">Name</label>
+                <input type="text" class="form-control" name="dname" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail3">Price</label>
+                <input type="text" class="form-control" name="price" placeholder="Price(Rs.)">
+              </div>
+              <div class="form-group">
+                <label for="exampleSelectGender">State</label>
+                <select class="form-control" name="state">
+                    <option >Andhra Pradesh</option>
+                    <option >Arunachal Pradesh</option>
+                    <option >Assam</option>
+                    <option >Bihar</option>
+                    <option > Chhattisgarh</option>
+                    <option >Goa</option>
+                    <option >Gujarat</option>
+                    <option > Haryana</option>
+                    <option > Himachal Pradesh</option>
+                    <option >Jammu and Kashmir</option>
+                    <option >Jharkhand</option>
+                    <option >Karnataka</option>
+                    <option >Kerala</option>
+                    <option >Madhya Pradesh</option>
+                    <option > Maharashtra</option>
+                    <option > Manipur</option>
+                    <option >Meghalaya</option>
+                    <option >Mizoram</option>
+                    <option >Nagaland</option>
+                    <option >Odisha</option>
+                    <option >Punjab</option>
+                    <option >Rajasthan</option>
+                    <option >Sikkim</option>
+                    <option >Tamil Nadu</option>
+                    <option >Telangana</option>
+                    <option >Tripura</option>
+                    <option > Uttar Pradesh</option> 
+                    <option >Uttarakhand</option>
+                    <option >West Bengal</option>   
+                </select></div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">City/Area</label>
+                    <input type="text" class="form-control" name="city" placeholder="City">
+                  </div>
+                
+                  <div class="form-group">
+                    <label>Includes</label> 
+                    <select class="js-example-basic-multiple" name="includes[]" multiple>
+                    <option >4+ Star Accomodations</option>
+                    <option >Roundtrip Airfare from Airport</option>
+                    <option >Ground Transportation from Airport to only if flight package is purchased</option>
+                    <option >Activities & Excursions listed on Itinerary</option>
+                    <option  >Meals</option>
+                    <option >Insurance</option>
+                  </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Excludes</label>
+                      <select name="excludes[]" class="js-example-basic-multiple" multiple>
+                                                  <option>Guide Service Fee</option>
+                                                  <option >Room Service Fees</option>
+                                                  <option >Driver Service Fee</option>                     
+                                                  <option >Meals</option>
+                                                  <option >Activities not Listed on Itinerary</option>
+                                                  <option >Insurance</option>
+                                                  <option >Covid </option>
+                                                  <option >Airline Baggage Fees</option>
+                                                  <option >Transportation to the Airport</option>
+                                                  <option >Activities & Excursions not listed on Itinerary</option>
+                                                  </select></div>
+                  <div class="form-group">
+                    <label>Start Date</label>           
+                      <input class="form-control" type="date" id="destSdaytime" name="destSdaytime" value="">
+                      <p class="text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <label>End Date</label>           
+                      <input class="form-control" type="date" id="destSdaytime" name="destEdaytime" value="">
+                      <p class="text-danger"></p>
+                  </div>
+              <div class="form-group">
+                <label>File upload</label>
+                  <input type="file" name="img" class="form-control file-upload-info" placeholder="Upload Image">
+              </div>
+              <div class="form-group">
+                <label>Upload multiple images</label>
+                  <input  multiple="multiple" type="file"  name="images" class="form-control file-upload-info" placeholder="Upload Image">
+              </div>
+              <div class="form-group">
+                <label for="exampleTextarea1">Additional Information</label>
+                <textarea class="form-control" rows="15" name="add_info"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Description Box</label>
+              <form method="post">
+                <textarea id="mytextarea" name="description"></textarea>
+                </form><br>
+              <button type="submit" class="btn btn-primary mr-2"> Submit </button>
+              <button class="btn btn-light">Cancel</button>
+            </form></div>
+          </div>      
+
+      
+  </div>
+  
+  <!-- main-panel ends -->
+</div>
+
+<%- include('./include/footer.ejs') %>

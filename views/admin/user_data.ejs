@@ -1,0 +1,41 @@
+<%- include('./include/head.ejs') %>
+<%- include('./include/sidebar.ejs') %>
+<div class="main-panel">
+    <div class="content-wrapper pb-0">
+      <div class="page-header flex-wrap">
+<table class="table" id="myTable">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+        </tr>
+    </thead>
+
+<tbody>
+    <% for(var i = 0; i < users.length; i++) { %>
+        <tr>
+            <td><%= i + 1 %></td>
+            <td><%= users[i].name %></td>
+            <td><%= users[i].email %></td>
+            <td><%= users[i].mobile %></td>
+            <!-- <td>
+                 <a href="/user/view_profile/<%=users[i].id%>" class="btn btn-primary btn-xs">View Profile</a>
+                <a href="/user/update-user?id=<%= users[i].id%>" class="btn border-shadow update">
+                    <span class="text-gradient"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                </a> -->
+                <!-- <a class="btn border-shadow delete" href="/user/api/deleteusers/<%= users[i].id %>">
+                    <span class="text-gradient"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                </a> 
+            </td> -->
+        </tr>
+        <% } %>
+</tbody>
+
+</table>
+</div>
+
+<!-- main-panel ends -->
+           </div>
+<%- include('./include/footer.ejs') %>

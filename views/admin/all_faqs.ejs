@@ -1,0 +1,48 @@
+<%- include('./include/head.ejs') %>
+<%- include('./include/sidebar.ejs') %>
+<div class="main-panel">
+    <div class="content-wrapper pb-0">
+      <div class="page-header flex-wrap">
+        <% if (locals.message && locals.message.danger ){ %>
+            <div class="alert alert-danger">
+          <%= message.danger %>
+          <%= message.message %>
+          </div>
+          <% } %>
+          <% if (locals.message && locals.message.success ){ %>
+            <div class="alert alert-success">
+          <%= message.success %>
+          <%= message.message %>
+          </div>
+          <% } %>  
+<table class="table" id="myTable">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+<tbody>
+    <% for(var i = 0; i < faqs.length; i++) { %>
+        <tr>
+            <td><%= i + 1 %></td>
+            <td><p><%- stripTags(faqs[i].question).slice(0, 97) %></p></td>
+            <td> <p><%- stripTags(faqs[i].answer).slice(0, 20) %>...</p></td>
+            <td><a  href="/del_faq/<%= faqs[i].id %>">
+                <span class="text-gradient"> <i class="fa fa-trash"> </i> </span></a>
+                <a href="/all_faqs/edit_faq/<%= faqs[i].id %>"><span class="text-gradient"><i class="fa fa-pen"></i></span></a></td>
+            </tr>
+        <% } %>
+</tbody><% function stripTags(html) {
+    return html.replace(/<[^>]*>?/gm, '');
+} %>
+
+</table>
+</div>
+
+<!-- main-panel ends -->
+</div>
+<%- include('./include/footer.ejs') %>

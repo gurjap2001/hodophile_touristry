@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign In</title>
+
+    <link rel="stylesheet" href="/assets/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <link rel="stylesheet" href="/assets/css/login.css">
+</head>
+
+
+<body>
+<div class="main">  
+<section class="signup">
+    <div class="container">
+        <div class="signup-content">
+            <div class="signup-form">
+                <% if (locals.message){ %>
+                    <div class="alert alert-message">
+            <%= message.message %>
+                </div>
+            <% } %>
+                <script>
+                    // Defining a function to display error message
+                    function printError(elemId, hintMsg) {
+                        document.getElementById(elemId).innerHTML = hintMsg;
+                    }
+            
+                    function validateSignup() {
+                        // Retrieving the values of form elements 
+                        var name = document.signup.name.value;
+                        var email = document.signup.email.value;
+                        var phone = document.signup.mobile.value;
+                       var password = document.signup.pass.value;
+            
+            
+                        // Defining error variables with a default value
+                        var nameErr = emailErr = phoneErr = passErr = true;
+            
+                        // Validate name
+                        if (name == "") {
+                            printError("nameErr", "Please enter your name");
+                        } else {
+                            var regex = /^[a-zA-Z\s]+$/;
+                            if (regex.test(name) === false) {
+                                printError("nameErr", "Please enter a valid name");
+                            } else {
+                                printError("nameErr", "");
+                                nameErr = false;
+                            }
+                        }
+            
+                        // Validate email address
+                        if (email == "") {
+                            printError("emailErr", "Please enter your email address");
+                        } else {
+                            // Regular expression for basic email validation
+                            var regex = /^\S+@\S+\.\S+$/;
+                            if (regex.test(email)
+             === false) {
+                                printError("emailErr", "Please enter a valid email address");
+                            } else {
+                                printError("emailErr", "");
+                                emailErr = false;
+                            }
+                        }
+            
+                        // Validate mobile number
+                        if (phone == "") {
+                            printError("phoneErr", "Please enter your mobile number");
+                        } else {
+                            var regex = /^[1-9]\d{9}$/;
+                            if (regex.test(phone)
+             === false) {
+                                printError("phoneErr", "Please enter a valid 10 digit mobile number");
+                            } else {
+                                printError("phoneErr", "");
+                                phoneErr = false;
+                            }
+                        }
+                        if(password==""){
+                            printError("passErr", "Please enter a password");
+                        }
+                        else {
+                             if(password.length<6){
+                                printError("passErr","Password must be 6 characters long");
+                             }
+                             else{
+                                printError("passErr", "");
+                                passErr = false;}
+                            }     
+                        // Prevent the form from being submitted if there are any errors
+                        if ((nameErr || emailErr || phoneErr || passErr) == true) {
+                            return false;
+                        } else {
+                            // Creating a string from input data for preview
+                            var dataPreview = "You've entered the following details: \n" +
+                                "Name: " + name + "\n" +
+                                "Email: " + email + "\n" +
+                                "Phone Number: " + phone + "\n" +
+                                "Password: " + password + "\n" ;
+                            // Display input data in a dialog box before submitting the form
+                            //alert(dataPreview);
+                        }
+                    };
+                </script>
+                <h2 class="form-title">Sign up</h2>
+                <form action="/register" method="POST" class="register-form" name="signup" onsubmit="return validateSignup()" id="register-form">
+                    <div class="form-group">
+                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="name" id="name" value="" placeholder="Your Name" required/>
+                    </div>
+                    <div class="error" id="nameErr"></div>
+                    <div class="form-group">
+                        <label for="email"><i class="zmdi zmdi-email"></i></label>
+                        <input type="email" name="email" id="email"value="" placeholder="Your Email"required/>
+                    </div>
+                    <div class="error" id="emailErr"></div>
+                    <div class="form-group">
+                        <label for="mobile"><i class="zmdi zmdi-phone"></i></label>
+                        <input type="text" name="mobile"value="" placeholder="Mobile"required/>
+                    </div>
+                    <div class="error" id="phoneErr"></div>
+                    <div class="form-group">
+                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                        <input type="password" name="pass" value=""id="pass" placeholder="Password"/></div>
+                        <div class="error" id="passErr"></div>
+                    <div class="form-group">
+                        <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                        <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required/>
+                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                    </div>
+                    <div class="form-group form-button">
+                        <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                    </div>
+                </form>
+            </div>
+            <div class="signup-image">
+                <figure><img src="/assets/images/signup-image.jpg" alt="sign up image"></figure>
+                <a href="/" class="signup-image-link">I am already a member</a>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+</body>

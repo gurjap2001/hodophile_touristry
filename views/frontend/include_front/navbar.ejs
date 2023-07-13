@@ -1,0 +1,56 @@
+<body>
+	 <a href="/"></a> 
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="/website">Hodophile<span style="font-size: large;">Touristry</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a href="/website" class="nav-link">Home</a></li>
+					<li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+					<li class="nav-item"><a href="/destination" class="nav-link">Destinations</a></li>
+					<li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
+					<li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+					<li class="nav-item"><%if(currentUser){%>
+						<a href="/logout" class="nav-link">Logout</a></li>
+						<li class="nav-item"><a href="/profile/<%= currentUser.id %>" class="nav-link">Profile</a></li>
+	<% const name = currentUser.name %>
+	<% function getInitials(name) {
+		const names = name.split(' ');
+		const initials = names.map(n => n[0].toUpperCase()).join('');
+		return initials;
+	   }
+	   const initials = getInitials(name);
+	%>
+	<li class="nav-item">
+		<% if(currentUser.profile_image) { %>
+			<div class="circle" style="background-image: url('assets/images/<%=currentUser.profile_image %>');
+			background-size: cover;
+			width: 56px;
+	  height: 56px;
+	  border-radius: 60%;
+			display:inline-block;
+			background-position: center;"></div> 
+	<% }  else { %>	
+	  <div class="initials-circle" style="display: inline-block;
+	  width: 56px;
+	  height: 56px;
+	  line-height: 60px;
+	  text-align: center;
+	  border-radius: 60%;
+	  background-color: #625e03;
+	  color: #fff;
+	  font-size: 28px;
+	  font-weight: 600;
+	  margin-left: 10px;"><%= initials %></div> 
+	  <% } %>
+	</li>
+  <% } else {  %><li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+  <% } %>
+		</ul>
+		</div>
+		</div>
+	</nav>
+	<!-- END nav -->

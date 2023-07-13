@@ -1,0 +1,47 @@
+<%- include('./include/head.ejs') %>
+<%- include('./include/sidebar.ejs') %>
+<div class="main-panel">
+    <div class="content-wrapper pb-0">
+      <div class="page-header flex-wrap">
+        <% if (locals.message && locals.message.success ){ %>
+            <div class="alert alert-success">
+          <%= message.success %>
+          <%= message.message %>
+          </div>
+          <% } %>
+<table class="table" id="myTable">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Payment Status</th>
+            <th>No. of People</th>
+            <th>Price</th>
+            <th>Destination ID</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+<tbody>
+    <% for(var i = 0; i < bookings.length; i++) { %>
+        <tr>
+            <td><%= i + 1 %></td>
+            <td><%= bookings[i].name %></td>
+            <td><%= bookings[i].email %></td>
+            <td><%= bookings[i].payment_status %></td>
+            <td><%= bookings[i].no_of_person %></td>
+            <td><%= bookings[i].price %></td>
+            <td><%= bookings[i].dest_id %></td>
+            <td> <a class="btn border-shadow delete" href="/delete_booking_admin/<%= bookings[i].id %>">
+                <span style="color: blue;"><em>Cancel</em></span>
+            </a></td>
+        </tr>
+        <% } %>
+</tbody>
+</table>
+</div>
+
+<!-- main-panel ends -->
+           </div>
+<%- include('./include/footer.ejs') %>

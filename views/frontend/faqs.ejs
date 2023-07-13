@@ -1,0 +1,34 @@
+<%- include ('./include_front/head_front.ejs') %>
+<%- include ('./include_front/navbar.ejs') %>
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/assets_front/images/pexels-leah-kelley-3935702.jpg');">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+       <p class="breadcrumbs"><span class="mr-2"><a href="/website">Home <i class="fa fa-chevron-right"></i></a></span> Have Questions? <span> <i class="fa fa-chevron-right"></i></span></p>
+       <h1 class="mb-0 bread">FAQs</h1>
+     </div>
+   </div>
+ </div>
+</section>
+<section class="ftco-section">
+    <div class="faq-box">
+       <br><br>
+        <ul>
+            <% faqs.forEach(function(faq) { %>
+              <li>
+                <h4><%- faq.question %></h4>
+                <p><%- faq.answer %></p>
+              </li>
+            <% }); %>
+          </ul>
+       </div></section>
+       <style>
+       .faq-box {
+        border: 1px solid #dc2991;
+        margin:50px;
+        border-radius: 5px;
+        background-color: #f5f5f5;
+        box-shadow: 0px 0px 10px rgba(208, 0, 0, 0.723)
+      }</style>
+<%- include ('./include_front/footer_front.ejs') %>	

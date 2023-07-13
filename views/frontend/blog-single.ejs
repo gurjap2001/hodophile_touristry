@@ -1,0 +1,37 @@
+
+
+<%- include ('./include_front/head_front.ejs') %>
+<%- include ('./include_front/navbar.ejs') %>
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/assets_front/images/pexels-leah-kelley-3935702.jpg');">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+    <div class="col-md-9 ftco-animate pb-5 text-center">
+    <p class="breadcrumbs"><span class="mr-2"><a href="/website">Home <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="index.html">Blog <i class="fa fa-chevron-right"></i></a></span> <span>Blog Single <i class="fa fa-chevron-right"></i></span></p>
+    <h1 class="mb-0 bread">Blog Details</h1>
+    </div>
+    </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+  <div class="container">
+    <div class="row">
+      <div class="ftco-animate py-md-5 mt-md-5">
+        <center><h3><%= blog.title %></h3></center>
+        <p><%- blog.content %></p>
+          </div>
+          <div class="container">
+        <center> <img src="/assets/images/<%=blog.photo%>" alt="" style="width:380px;height:340px"class="img-fluid"></center>
+        <div class="about-author d-flex p-4"><br>
+          <div class="bio mr-5">
+            <h3>Author:</h3>
+            <p>Name: <%= users.name %></p>
+            <p>Mobile: <%= users.mobile %></p>
+          </div></div>
+        </div>
+    </div>
+  </div>
+</section> 	
+<%- include ('include_front/footer_front.ejs') %>
